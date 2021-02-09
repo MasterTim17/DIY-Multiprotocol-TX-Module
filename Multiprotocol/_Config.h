@@ -78,7 +78,7 @@
 #define CYRF6936_INSTALLED
 #define CC2500_INSTALLED
 #define NRF24L01_INSTALLED
-//#define SX1276_INSTALLED		// only supported on STM32 modules
+#define SX1276_INSTALLED		// only supported on STM32 modules
 
 //Uncomment (remove //) if you have an internal 5-in-1 Multi module.
 //All components are considered to be installed and specifics to that module are automatically configured 
@@ -352,7 +352,7 @@
 /*************************/
 //In this section you can configure all details about PPM.
 //If you do not plan to use the PPM mode comment this line using "//" to save Flash space, you don't need to configure anything below in this case
-#define ENABLE_PPM
+// #define ENABLE_PPM
 
 /** TX END POINTS **/
 //It is important for the module to know the endpoints of your radio.

@@ -281,8 +281,12 @@ static void __attribute__((unused)) SFHSS_get_tx_id()
 			run_count = 0;
 	}
 	//    fixed_id = 0xBC11;
-	rx_tx_addr[0] = fixed_id >> 8;
-	rx_tx_addr[1] = fixed_id >> 0;
+	// rx_tx_addr[0] = fixed_id >> 8;
+	// rx_tx_addr[1] = fixed_id >> 0;
+
+	//futaba von tim clonen
+	rx_tx_addr[0] = 81;
+	rx_tx_addr[1] = 111;
 }
 
 void SFHSS_init()
