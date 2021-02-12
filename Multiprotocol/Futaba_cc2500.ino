@@ -25,6 +25,8 @@
 
 uint8_t	fhss_code=0; // 0-27
 
+uint8_t tim_futaba[] = {81,111};
+
 enum {
     SFHSS_START = 0x00,
     SFHSS_CAL   = 0x01,
@@ -190,8 +192,8 @@ static void __attribute__((unused)) SFHSS_build_data_packet()
 	packet[0] = 0x81;	// can be 80 or 81 for Orange, only 81 for XK
 	packet[1] = rx_tx_addr[0];
 	packet[2] = rx_tx_addr[1];
-	packet[3] = 0x00;	// unknown but prevents some receivers to bind if not 0
-	packet[4] = 0x00;	// unknown but prevents some receivers to bind if not 0
+	packet[3] = 0x0f; //0x00;	// unknown but prevents some receivers to bind if not 0
+	packet[4] = 0x09; //0x00;	// unknown but prevents some receivers to bind if not 0
 	packet[5] = (rf_ch_num << 3) | ((ch[0] >> 9) & 0x07);
 	packet[6] = (ch[0] >> 1);
 	packet[7] = (ch[0] << 7) | ((ch[1] >> 5) & 0x7F );
@@ -285,8 +287,8 @@ static void __attribute__((unused)) SFHSS_get_tx_id()
 	// rx_tx_addr[1] = fixed_id >> 0;
 
 	//futaba von tim clonen
-	rx_tx_addr[0] = 81;
-	rx_tx_addr[1] = 111;
+	rx_tx_addr[0] = tim_futaba[0];
+	rx_tx_addr[1] = tim_futaba[1];
 }
 
 uint16_t initSFHSS()
